@@ -12,33 +12,41 @@ public class UserRegistration {
         String firstName=sc.nextLine();
         boolean  firstNameResult=isValidFirstName(firstName);
         if(firstNameResult)
-            System.out.println("First name is valid");
+            System.out.println("Valid First name");
         else
-            System.out.println("First name not valid");
+            System.out.println("Invalid first name");
         //PRINTING RESULT OF LASTNAME
         System.out.println("Enter last name: ");
         String lastName=sc.nextLine();
         boolean  lastNameResult=isValidLastName(lastName);
         if(lastNameResult)
-            System.out.println("last name is valid");
+            System.out.println("Valid last name");
         else
-            System.out.println("Last name invalid ");
+            System.out.println("Invalid last name");
         //PRINTING RESULT OF EMAIL
         System.out.println("Enter email: ");
         String email=sc.nextLine();
         boolean  emailResult=isValidEmail(email);
         if(emailResult)
-            System.out.println("email is valid");
+            System.out.println("Valid Email");
         else
-            System.out.println("email invalid ");
+            System.out.println("Invalid  email");
         //PRINTING RESULT OF PHONE NUMBER
         System.out.println("Enter phone number: ");
         String phoneNumber=sc.nextLine();
         boolean phoneNumberResult=isValidPhoneNumber(phoneNumber);
         if(phoneNumberResult)
-            System.out.println("Phone number is valid");
+            System.out.println("Valid phone number");
         else
-            System.out.println("Phone number invalid ");
+            System.out.println("Invalid phone number");
+        //PRINTING RESULT OF PASSWORD
+        System.out.println("Enter Password: ");
+        String password=sc.nextLine();
+        boolean passwordResult=isValidPassword(password);
+        if(passwordResult)
+            System.out.println("Password is valid");
+        else
+            System.out.println("Invalid password");
     }
 
     //CHECKING VALID OR INVALID FIRST NAME
@@ -70,6 +78,13 @@ public class UserRegistration {
         String mobileNumberPattern= "^[0-9]{2}[ ][0-9]{10}$";
         Pattern ptrn = Pattern.compile(mobileNumberPattern);
         Matcher mchr = ptrn.matcher(phoneNumber);
+        return mchr.matches();
+    }
+    //CHECKING PASSWORD LENGTH MINIMUM 8 CHARACTER
+    public static boolean isValidPassword(String password){
+        String passwordPattern=".{8,}";
+        Pattern ptrn = Pattern.compile(passwordPattern);
+        Matcher mchr = ptrn.matcher(password);
         return mchr.matches();
     }
 }
