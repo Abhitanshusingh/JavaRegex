@@ -58,4 +58,17 @@ public class TestUserRegistration {
         boolean result = validator.isValidEmail("19123");
         Assert.assertFalse(result);
     }
+    //TEST CASE FOR VALID PASSWORD MINIMUM 8 CHARACTER
+    @Test
+    public void isPasswordVlalid() {
+        boolean result = validator.isValidPassword("abhi1234");
+        Assert.assertTrue(result);
+    }
+
+    //TEST CASE FOR INVALID PASSWORD MINIMUM 8 CHARACTER
+    @Test
+    public void isPasswordInvalid() {
+        boolean result = validator.isValidPassword("ab123");
+        Assert.assertFalse(result);
+    }
 }
