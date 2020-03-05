@@ -14,5 +14,16 @@ public class TestUserRegistration {
         boolean result=validator.isValidFirstName("abhi");
         Assert.assertFalse(result);
     }
-
+    //TEST CASE FOR VALID LAST NAME
+    @Test
+    public void lastNameValid() {
+        boolean result=validator.isValidFirstName("Singh");
+        Assert.assertTrue(result);
+    }
+    //TEST CASE FOR INVALID VALID LAST NAME
+    @Test
+    public void lastNameInvalid() {
+        boolean result=validator.isValidFirstName("sInGh");
+        Assert.assertFalse(result);
+    }
 }
