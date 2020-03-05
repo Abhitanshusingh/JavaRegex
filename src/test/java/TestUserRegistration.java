@@ -17,13 +17,25 @@ public class TestUserRegistration {
     //TEST CASE FOR VALID LAST NAME
     @Test
     public void lastNameValid() {
-        boolean result=validator.isValidFirstName("Singh");
+        boolean result=validator.isValidLastName("Singh");
         Assert.assertTrue(result);
     }
     //TEST CASE FOR INVALID VALID LAST NAME
     @Test
     public void lastNameInvalid() {
-        boolean result=validator.isValidFirstName("sInGh");
+        boolean result=validator.isValidLastName("sInGh");
+        Assert.assertFalse(result);
+    }
+    //TEST CASE FOR VALID email
+    @Test
+    public void isemailalid() {
+        boolean result=validator.isValidEmail("abhitanshusingh99@gmail.com");
+        Assert.assertTrue(result);
+    }
+    //TEST CASE FOR INVALID VALID LAST NAME
+    @Test
+    public void isemailInvalid() {
+        boolean result=validator.isValidEmail("99@gmail.com");
         Assert.assertFalse(result);
     }
 }
