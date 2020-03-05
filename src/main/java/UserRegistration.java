@@ -1,3 +1,4 @@
+import java.lang.ref.PhantomReference;
 import java.util.Scanner;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
@@ -8,7 +9,7 @@ public class UserRegistration {
         //PRINTING RESULT OF FIRST NAME
         System.out.println("Enter first name: ");
         Scanner sc=new Scanner(System.in);
-        String firstName=sc.next();
+        String firstName=sc.nextLine();
         boolean  firstNameResult=isValidFirstName(firstName);
         if(firstNameResult)
             System.out.println("First name is valid");
@@ -16,7 +17,7 @@ public class UserRegistration {
             System.out.println("First name not valid");
         //PRINTING RESULT OF LASTNAME
         System.out.println("Enter last name: ");
-        String lastName=sc.next();
+        String lastName=sc.nextLine();
         boolean  lastNameResult=isValidLastName(lastName);
         if(lastNameResult)
             System.out.println("last name is valid");
@@ -24,13 +25,22 @@ public class UserRegistration {
             System.out.println("Last name invalid ");
         //PRINTING RESULT OF EMAIL
         System.out.println("Enter email: ");
-        String email=sc.next();
+        String email=sc.nextLine();
         boolean  emailResult=isValidEmail(email);
         if(emailResult)
             System.out.println("email is valid");
         else
             System.out.println("email invalid ");
+        //PRINTING RESULT OF PHONE NUMBER
+        System.out.println("Enter phone number: ");
+        String phoneNumber=sc.nextLine();
+        boolean phoneNumberResult=isValidPhoneNumber(phoneNumber);
+        if(phoneNumberResult)
+            System.out.println("Phone number is valid");
+        else
+            System.out.println("Phone number invalid ");
     }
+
     //CHECKING VALID OR INVALID FIRST NAME
     public static boolean isValidFirstName(String firstName){
         String firstNamePattern="^[A-Z]{1}[a-z]{2,}$";
@@ -55,4 +65,11 @@ public class UserRegistration {
         return mchr.matches();
     }
 
+    //CHECKING VALID OR INVALID PHONE NUMBER
+    public static boolean isValidPhoneNumber(String phoneNumber){
+        String mobileNumberPattern= "^[0-9]{2}[ ][0-9]{10}$";
+        Pattern ptrn = Pattern.compile(mobileNumberPattern);
+        Matcher mchr = ptrn.matcher(phoneNumber);
+        return mchr.matches();
+    }
 }
