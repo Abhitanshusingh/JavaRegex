@@ -97,4 +97,17 @@ public class TestUserRegistration {
         boolean result = validator.isOneNumericValidPassword("Abhitanshu");
         Assert.assertFalse(result);
     }
+    //TEST CASE FOR VALID PASSWORD EXACTLY ONE SPECIAL CHARACTER
+    @Test
+    public void isSpecialCharacterValid(){
+        boolean result = validator.isSpecialValidPassword("Abhitanshu99@");
+        Assert.assertTrue(result);
+    }
+
+    //TEST CASE FOR INVALID PASSWORD EXACTLY ONE SPECIAL CHARACTER
+    @Test
+    public void isSpecialCharacterInValid() {
+        boolean result = validator.isSpecialValidPassword("Abhitanshu99@@");
+        Assert.assertFalse(result);
+    }
 }
