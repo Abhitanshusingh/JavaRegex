@@ -49,12 +49,17 @@ public class UserRegistration {
         else {
             System.out.println("Enter minimum 8 character");
         }
-        boolean passwordResultOneupper=isOneUpperCaseValidPassword(password);
-        if(passwordResultOneupper) {
+        if(isOneUpperCaseValidPassword(password)) {
+            isOneNumericValidPassword(password);
+        }
+        else {
+            System.out.println("Enter one upper case in password");
+        }
+        if(isOneNumericValidPassword(password)) {
             System.out.println("Valid password");
         }
         else {
-            System.out.println("Enter one upper case password");
+            System.out.println("Enter one Numeric in  password");
         }
     }
 
@@ -101,6 +106,13 @@ public class UserRegistration {
         String passwordPattern=".*[A-Z]+.*";
         Pattern ptrn = Pattern.compile(passwordPattern);
         Matcher mchr = ptrn.matcher(upperCase);
+        return mchr.matches();
+    }
+    //CHECKING PASSWORD HAVE ONE NUMERIC
+    public static boolean isOneNumericValidPassword(String oneNumeric){
+        String passwordPattern=".*[0-9]+.*";
+        Pattern ptrn = Pattern.compile(passwordPattern);
+        Matcher mchr = ptrn.matcher(oneNumeric);
         return mchr.matches();
     }
 }
