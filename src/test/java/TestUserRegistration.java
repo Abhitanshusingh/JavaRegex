@@ -73,15 +73,28 @@ public class TestUserRegistration {
     }
     //TEST CASE FOR VALID PASSWORD ONE UPPER CASE
     @Test
-    public void isOneUpperCaseValidPassword (){
+    public void isOneUpperCaseValid(){
         boolean result = validator.isOneUpperCaseValidPassword("Abhitanshu");
         Assert.assertTrue(result);
     }
 
     //TEST CASE FOR INVALID PASSWORD MINIMUM 8 CHARACTER
     @Test
-    public void isOneUpperCaseInValidPassword() {
+    public void isOneUpperCaseInValid() {
         boolean result = validator.isOneUpperCaseValidPassword("abhitanshu");
+        Assert.assertFalse(result);
+    }
+    //TEST CASE FOR VALID PASSWORD ONE NUMERIC
+    @Test
+    public void isOneNumericValid(){
+        boolean result = validator.isOneNumericValidPassword("Abhitanshu99");
+        Assert.assertTrue(result);
+    }
+
+    //TEST CASE FOR INVALID PASSWORD ONE NUMERIC
+    @Test
+    public void isOneNumericInValid() {
+        boolean result = validator.isOneNumericValidPassword("Abhitanshu");
         Assert.assertFalse(result);
     }
 }
