@@ -34,19 +34,28 @@ public class UserRegistration {
         //PRINTING RESULT OF PHONE NUMBER
         System.out.println("Enter phone number: ");
         String phoneNumber=sc.nextLine();
-        boolean phoneNumberResult=isValidPhoneNumber(phoneNumber);
-        if(phoneNumberResult)
+        if(isValidPhoneNumber(phoneNumber))
             System.out.println("Valid phone number");
         else
             System.out.println("Invalid phone number");
+        
         //PRINTING RESULT OF PASSWORD
         System.out.println("Enter Password: ");
         String password=sc.nextLine();
         boolean passwordResult=isValidPassword(password);
-        if(passwordResult)
-            System.out.println("Password is valid");
-        else
-            System.out.println("Invalid password");
+        if(passwordResult) {
+            isOneUpperCaseValidPassword(password);
+        }
+        else {
+            System.out.println("Enter minimum 8 character");
+        }
+        boolean passwordResultOneupper=isOneUpperCaseValidPassword(password);
+        if(passwordResultOneupper) {
+            System.out.println("Valid password");
+        }
+        else {
+            System.out.println("Enter one upper case password");
+        }
     }
 
     //CHECKING VALID OR INVALID FIRST NAME
@@ -84,7 +93,14 @@ public class UserRegistration {
     public static boolean isValidPassword(String password){
         String passwordPattern=".{8,}";
         Pattern ptrn = Pattern.compile(passwordPattern);
-        Matcher mchr = ptrn.matcher(password);
+        Matcher mchr=ptrn.matcher(password);
+        return mchr.matches();
+    }
+    //CHECKING PASSWORD HAVE ONE UPPER CASE
+    public static boolean isOneUpperCaseValidPassword(String upperCase){
+        String passwordPattern=".*[A-Z]+.*";
+        Pattern ptrn = Pattern.compile(passwordPattern);
+        Matcher mchr = ptrn.matcher(upperCase);
         return mchr.matches();
     }
 }
