@@ -110,4 +110,22 @@ public class TestUserRegistration {
         boolean result = validator.isSpecialValidPassword("Abhitanshu99@@");
         Assert.assertFalse(result);
     }
+    //TEST CASE FOR ALL VALID EMAIL
+    @Test
+    public void isAllEmailValid(){
+        String[] validEmailArray= {"abc@yahoo.com" ,"abc-100@yahoo.com","abc.100@yahoo.com","abc111@abc.com","abc-100@abc.net","abc.100@abc.com.au","abc@1.com","abc@gmail.com.com"};
+        for (int index=0; index<validEmailArray.length; index++) {
+            boolean result = validator.isValidEmail(validEmailArray[index]);
+            Assert.assertTrue(result);
+        }
+    }
+    //TEST CASE FOR ALL INVALID EMAIL
+    @Test
+    public void isAllEmailInValid(){
+        String[] InvalidEmailArray= {"abc","abc@.com.my","abc123@gmail.a","abc123@.com","abc123@.com.com",".abc@abc.com","abc()*@gmail.com","abc@%*.com","abc..2002@gmail.com","abc.@gmail.com ","abc@abc@gmail.com","abc@gmail.com.1a","abc@gmail.com.aa.au"};
+        for (int index=0; index<InvalidEmailArray.length; index++) {
+            boolean result = validator.isValidEmail(InvalidEmailArray[index]);
+            Assert.assertFalse(result);
+        }
+    }
 }
