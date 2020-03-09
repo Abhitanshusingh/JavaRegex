@@ -1,4 +1,3 @@
-import java.lang.ref.PhantomReference;
 import java.util.Scanner;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
@@ -42,21 +41,14 @@ public class UserRegistration {
         //PRINTING RESULT OF PASSWORD
         System.out.println("Enter Password: ");
         String password = sc.nextLine();
-        boolean passwordResult = isValidPassword(password);
-        if (passwordResult) {
-            if (isOneUpperCaseValidPassword(password)) {
-                if (isOneNumericValidPassword(password)) {
-                    if (isSpecialValidPassword(password)) {
-                        System.out.println("Valid password");
-                    } else
-                        System.out.println("Invalid password enter exactly one Special character");
-                } else
-                    System.out.println("Invalid password enter one numbre");
-            } else
-                System.out.println("Invalid password enter one upper case");
-        } else
-            System.out.println("Invalid password enter minimum 8 character ");
+        if (isValidPassword(password) && isOneUpperCaseValidPassword(password) && isOneNumericValidPassword(password) && isSpecialValidPassword(password)) {
+            System.out.println("Valid");
+        }
+        else {
+            System.out.println("Invalid");
+        }
     }
+
     //CHECKING VALID OR INVALID FIRST NAME
     public static boolean isValidFirstName(String firstName) {
         String firstNamePattern = "^[A-Z]{1}[a-z]{2,}$";
