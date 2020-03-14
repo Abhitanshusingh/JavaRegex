@@ -14,6 +14,7 @@ public class UserRegistration {
             System.out.println("Valid First name");
         else
             System.out.println("Invalid first name");
+
         //PRINTING RESULT OF LASTNAME
         System.out.println("Enter last name: ");
         String lastName = sc.nextLine();
@@ -22,6 +23,7 @@ public class UserRegistration {
             System.out.println("Valid last name");
         else
             System.out.println("Invalid last name");
+
         //PRINTING RESULT OF EMAIL
         System.out.println("Enter email: ");
         String email = sc.nextLine();
@@ -30,6 +32,7 @@ public class UserRegistration {
             System.out.println("Valid Email");
         else
             System.out.println("Invalid  email");
+
         //PRINTING RESULT OF PHONE NUMBER
         System.out.println("Enter phone number: ");
         String phoneNumber = sc.nextLine();
